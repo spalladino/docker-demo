@@ -31,5 +31,13 @@ module DockerDemo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Use lograge for logging
+    config.lograge.enabled = true
+    config.lograge.logger = Logger.new(STDOUT)
+    config.lograge.custom_options = lambda do |event|
+      params = event.payload[:params].except('controller', 'action')
+      { :time => event.time, :params => params.to_query }
+    end
   end
 end

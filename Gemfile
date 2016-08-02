@@ -13,6 +13,8 @@ gem 'puma'
 
 gem 'config'
 
+gem 'lograge'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
