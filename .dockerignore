@@ -1,0 +1,13 @@
+# Common dirs to ignore
+doc
+tmp
+log
+spec
+test
+
+# Do not ignore .git if we want to export the version identifier
+.git
+
+# Avoid copying bundle to image
+.bundle
+vendor/bundle

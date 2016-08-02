@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    image: docker-demo:local
+    environment:
+      DATABASE_URL: mysql2://root@db/docker-demo
+      SECRET_KEY_BASE: 396b0936c1bafc896bcb30d4b0dde2bf92d10c517e92a8365411ecfba12f82e6c02049226939800e67b59cf8288d32435f4542ae22b5070d97f388f4f7d9dbf4
+    ports:
+      - "4000:80"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
